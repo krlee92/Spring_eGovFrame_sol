@@ -1,0 +1,55 @@
+Spring + Maven + MyBatis
+
+-------------------------------
+Java
+JSP
+Spring -> 5개월 => 
+빅데이터관련 -> 1주일
+----------------------------6개월
+Java
+JSP
+SPring
+
+eclipse
+	euc-kr
++ spring 관련 add-on
++ maven관련 add-on
++ mybatis관련 add-on
+..
+저게 다 되어있는
+전자정부프레임워크
+egovframe.go.kr - 다운로두 -개발환경 - 3.x다운로드 - 3.9.0개발자용 개발환경 32bit/64bit(Implementation Tool) Version 3.9.0
+eGovframe
+	+ spring add-on
+	+ mybatis add-on
+	+ ...
+	utf-8
+
+
+OpenJDK(오라클JDK무관) 설치
+Oracle 11gXE 설치 / 계정생성
+익스프레스 에디션
+Toamcat 설치 : Windows에 ApacheTomcat 8.5설치(80번포트, 원본, 그래서 복사본과 충돌나기때문에 windows tomcat 꺼야함(configure tomcat)
+eGovFrameDev
+	경로에 한글 없게 적당한 위치에 압축풀기
+	eclipse실행(workspace 잘)
+	테마, 폰트 ....
+	+ 톰캣연동
+		이클립스로 Windows에 설치된 ApacheTomcat 8.5의 복사본을 만들어서 그거랑 연동
+	
+	인터넷 주소에 한글 넣으면 안됨
+	ㅋ _> %2D(URL인코딩)
+	톰캣이 자동으로 해줌(인코딩 방식(iso8859-1..이상한거))
+		+톰캣이 URL인코딩 처리할 때 사용할 방식 바꾸기->UTF-8로 바꿔야함
+			프로젝트 Servers ->server.xml ->source탭
+			->20000으로 검색
+			<Connector URIEncoding="utf-8" connectionTimeout="20000" port="80" protocol="HTTP/1.1" redirectPort="8443"/>
+			이부분에
+ 			URIEncoding="utf-8" 추가
+
+	+ DB연결
+		원래sqpplus라는 프로그램으로 제어
+		이클립스로 DB서버 제어하려고 - 필수x
+	Data source explorer -> database Connections - new - oracle -> oracle thin drive11 >jar list에 ojdbc8(instatnclient16에있는)
+	-> SID :xe Host : ip주소(DB설치된컴퓨터의) : user name/pw 자기거(관리자계정 x) 
+

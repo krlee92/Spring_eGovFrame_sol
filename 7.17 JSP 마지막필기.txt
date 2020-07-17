@@ -1,0 +1,5 @@
+파라메터 parameter
+어트리뷰트 attribute
+세션 session
+쿠키필기 cookie
+Jul17_1_JSP에 

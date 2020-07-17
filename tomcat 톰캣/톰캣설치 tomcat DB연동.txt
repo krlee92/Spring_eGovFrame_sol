@@ -1,0 +1,23 @@
+Tomcat 설치
+톰 캣 설치
+
+apache-tomcat-8.5.56 설치- 아파치 경로(c_program files) 기억
+eclipse - servers -> add new server(파란거) ->Apache - tomcat 8.5, 아파치 경로 지정
+
+인터넷 주소에 한글 넣으면 안됨
+	ㅋ _> %2D(URL인코딩)
+	톰캣이 자동으로 해줌(인코딩 방식(iso8859-1..이상한거))
+		+톰캣이 URL인코딩 처리할 때 사용할 방식 바꾸기->UTF-8로 바꿔야함
+		프로젝트 Servers ->server.xml -source탭
+		->20000으로 검색
+		-><Connector URIEncoding="utf-8" connectionTimeout="20000" port="80" protocol="HTTP/1.1" redirectPort="8443"/>
+		이부분에
+ 		URIEncoding="utf-8" 추가
+
+
+DB연결
+		원래sqpplus라는 프로그램으로 제어
+		이클립스로 DB서버 제어하려고 - 필수x
+	Data source explorer -> database Connections - new - oracle -> oracle thin drive11 >jar list에 ojdbc8(instatnclient16에있는)
+	-> SID :xe Host : ip주소(DB설치된컴퓨터의) : user name/pw 자기거(관리자계정 x) 
+
