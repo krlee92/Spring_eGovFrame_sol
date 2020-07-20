@@ -1,0 +1,31 @@
+blog.mybatis.org
+products
+
+Java - 프로그래밍 전반
+JSP - 통신 전반
+--------------------------
+그 때 수동으로 했던거를 자동으로
+Framework
+-----------------------
+JSP Model2 + EL +JSTL
+.jar수동
+ConnectionPool
+----------------------------
+JSP Model2 + EL +JSTL
+Maven
+MyBatis
+---------------------
+Spring MVC + EL + JSTL
+Maven
+MyBatis
+
+
+
+XML : kxml 검색
+
+JSON : json-simple 검색-type지우기
+OracleDB : ojdbc 검색-외부저장소 등록
+MyBatis : mybatis 검색
+JSTL : jstl(mvnrepository.com)
+
+
