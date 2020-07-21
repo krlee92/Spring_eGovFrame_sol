@@ -1,0 +1,46 @@
+api.openweathermap.org/data/2.5/weather?q=incheon
+&appid=baff8f3c6cbc28a4024e336599de28c4
+&units=metric
+&lang=kr
+
+
+&units=metric 섭씨단위로
+
+
+-------------spring---------------
+top-level package
+	com.lee.mvc
+
+JSP
+	IP주소/프로젝트명/컨트롤러
+
+Spring
+	IP주소/top-level package마지막자리/???
+	ip주소/mvc/???
+
+실행
+	컨트롤러-x
+	프로젝트에서
+
+
+src/main/java
+	.java작업(C,M)
+
+src/main/resources
+	.java에서 사용하는 기타 파일
+	config.xml, mapper.xml, ...
+
+src
+  main
+    webapp
+	resources
+	   V가 사용하는 기타 파일
+	   그림파일, css, js
+	WEB-INF
+	   spring
+	      appServlet
+	         servlet-context.xml : 프로젝트 설정 파일
+	   views
+	      V(.jsp만)
+	   web.xml : 프로젝트 설정 파일
+pom.xml : maven
