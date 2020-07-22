@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<bean id="m1" class="com.lee.jul22.sdi.Menu">
+		<property name="name" value="삼겹살"></property>
+		<property name="price" value="10000"></property>
+	</bean>
+	
+	<bean id="d2" class="com.lee.jul22.sdi.Dog">
+		<constructor-arg value="뿌삐"></constructor-arg>
+		<constructor-arg value="2"></constructor-arg>
+	</bean>
+	
+	<bean id="h1" class="com.lee.jul22.sdi.Human">
+		<property name="name" value="홍길동"></property>
+		<property name="age" value="30"></property>
+		<property name="nickname" >
+			<list>
+				<value>바보</value>
+				<value>천재</value>
+			</list>		
+		</property>
+		<property name="family">
+			<list>
+				<value>아버지</value>
+				<value>어머니</value>
+				<value>형</value>
+			</list>
+		</property>
+		<property name="score">
+			<map>
+				<entry key="국어" value="100"></entry>
+				<entry key="영어" value="90"></entry>
+				<entry key="수학" value="80"></entry>
+			</map>
+		</property>
+		<property name="pet" ref="d2"></property>
+	</bean>
+	
+	<bean id="h2" class="com.lee.jul22.sdi.Human">
+		<constructor-arg value="장길동"></constructor-arg>
+		<constructor-arg value="29"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>haha</value>
+				<value>hoho</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>형</value>
+				<value>동생</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key="국어" value="0"></entry>
+				<entry key="영어" value="10"></entry>
+			</map>
+		</constructor-arg>
+		<constructor-arg ref="d2"></constructor-arg>
+	</bean>
+	
+	<bean id="ccw" class="com.lee.jul22.sdi.ChunChangwon">
+		<property name="name" value="천창원"></property>
+		<property name="age" value="23"></property>
+	</bean>
+	
+	<context:annotation-config></context:annotation-config>
+</beans>

@@ -1,0 +1,11 @@
+@charset "UTF-8";
+textarea {
+	resize: none; /* 사용자가 사이즈 못 바꾸게*/
+	width: 200px;
+	height: 200px;
+}
+
+button {
+	resize: none; /* 사용자가 사이즈 못 바꾸게*/
+	width: 200px;
+}

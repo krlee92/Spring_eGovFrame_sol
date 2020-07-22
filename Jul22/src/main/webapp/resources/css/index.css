@@ -1,0 +1,53 @@
+@charset "UTF-8";
+::-webkit-scrollbar{
+	display: none;
+}
+a {
+	text-decoration: none;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #B2C7D9;
+}
+
+#siteTitleArea {
+	position: fixed;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: #A9BDCE;
+	border-bottom: #606B75 solid 1px;
+}
+
+#siteTitle {
+	padding-left: 10px;
+	height: 50px;
+}
+
+#siteTitle a{
+	color: #606B75;
+	font-size: 20pt;
+	font-weight: 900;
+}
+
+#siteMenuArea {
+	height: 40px;
+}
+
+#siteMenuArea a {
+	color: #606B75;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 15pt;
+	font-weight: 900;
+}
+
+#siteContentArea {
+	padding-top: 120px;
+	width: 100%;
+}
+#homeImg{
+	max-width: 80%;
+}
