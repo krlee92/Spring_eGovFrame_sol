@@ -1,4 +1,6 @@
 2.1 web.xml에 추가
+
+POST방식 한글처리
 <filter>
 <filter-name>encodingFilter</filter-name>
 <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
