@@ -1,0 +1,48 @@
+SpringMVC Project
+
+파일위치
+xxxMapper.xml : src/main/resources
+
+servlet-context.xml : src/main/webapp-WEB-INF-spring-appServlet
+----------------------------------------------------------------------
+파일업로드(사연많음)
+작업순서(생성 순서)
+
+Photo.java(JavaBean, DTO, POJO)
+
+photoMapper.xml
+PhotoMapper(interface)
+servlet-contex.xml에 등록
+
+@Service
+photoDAO.java
+
+@Controller
+photoController.java
+
+V
+----------------------------------
+작업순서(파일작업)
+
+V
+	POST방식
+	enctype="multipart/form-data"
+----------------------------------------------
+
+web.xml : 클라이언트가 POST방식 요청 한글처리
+
+pom.xml : Spring + MyBatis조합에 필요한 jar들 가져오기
+
+servlet-context.xml : sqlSession 등록
+
+memberMapper.xml
+MemberMapper(interface)
+
+/, GET -> index로 -> 사이트 첫 접속
+index.do, GET -> 제목누른거 -> 첫 접속과 동일한 상태로
+-----------------------------멀쩡하게 실행되게
+index.jsp에 디자인
+	제목
+	메뉴들어갈자리
+	내용들어갈자리 => home.jsp
+	로그인시스템 들어갈자리 => 
