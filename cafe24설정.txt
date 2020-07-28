@@ -1,0 +1,21 @@
+soldesk06
+aa134679
+
+FTP,Telnet,DB비밀번호
+aa134679a
+---------------------
+
+Host Name : localhost
+SQL User : 고객님의 ID
+Password : 서비스 신청 시 입력하신 관리 비밀번호
+DB Name : 고객님의 ID
+
+MySQL DB 주소
+
+localhost
+MySQL DB 아이디
+
+soldesk06
+MySQL DB 포트
+
+3306
