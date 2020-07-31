@@ -1,0 +1,23 @@
+back-end : Java + OracleDB
+	Spring + MyBatis
+
+Spring  : AJAX서버
+	- 웹사이트
+	- 요청하면 XML/JSON으로 응답 : AJAX서버
+
+front-end : javaScript
+	jQuery로 AJAX 
+
+AJAX : Asynchronous 비동기식 JavaScript and Xml : 자바스크립트로 XML/JSON파싱
+
+
+XML파싱
+
+유효성검사 : JS
+
+ID중복검사를 JS로 하고싶음
+	=> JS에서 DB를 확인할 수 있어야
+		=> AJAX
+
+member.id.check?dm_id=kwon로 요청하면
+id가 kwon인 사람 정보가 XML/JSON로 나오게
