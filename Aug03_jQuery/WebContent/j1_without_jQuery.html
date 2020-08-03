@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function test(){
+	// id가 h인 객체 불러오기
+	// 인터프리터식 - 실행순서 1번부터 순차실행
+	
+	// 단점 문법이 길다
+	// 인터프리터 방식 언어
+	// => 에러잡기 힘듬
+	
+	// 웹페이지에 이벤트 처리용 언어
+	// => 함수를 정의 - HTML객체의 onXXX에 연결
+	// => 작업 불편
+	var hh = document.getElementById("h");
+	alert(hh.innerHTML);
+	
+}
+</script>
+</head>
+<body onload="test();">
+	<h1 id="h">ㅋㅋㅋ</h1>
+	
+
+</body>
+</html>

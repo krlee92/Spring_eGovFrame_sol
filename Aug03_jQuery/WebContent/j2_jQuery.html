@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 해외여행
+	//	A) 비행기 예매, 일정, 식당, 교통편, 숙소...
+	//	B) 여행사 패키지상품A를 선택
+
+	// validCheck.js : 유효성검사 관련해서 함수 정리
+	//					유효성검사 할 때 validCheck.js를 사용하면 편리
+
+	// jQuery.js : JS전반 관련해서 함수 정리
+	//			JS할 때 jQuery.js를 사용하면 편리
+
+	// 웹페이지 이벤트 처리
+	// JavaScript vs jQuery
+	//		A	  vs	B
+</script>
+
+<script type="text/javascript" src="jQuery.js"></script>
+
+<script type="text/javascript">
+	// event-driven programming
+
+	// callback함수
+	// 이벤트에 연결되어서 그 이벤트가 발생하면 자동 호출
+
+	// jQuery 대신에 $ 가능 => $충돌시 jQuery 써야함
+	// jQuery(선택자).이벤트(콜백함수);
+	//		선택자 자리
+	//			JS내장객체
+	//			"CSS선택자"
+
+	//		이벤트 자리
+	//			JS의 onXXX XXX부분만 쓰면됨
+
+	//	이 html이 ready되면 이 함수가 자동호출
+	// jQuery의 main
+
+	/* jQuery(document).ready(function (){
+		alert("ㅋ");
+	}); 를 줄여서 */
+
+	$(function() {
+		var hh = $("#h");
+		alert(hh.text());
+		
+		// 버튼을 다섯번 누르면
+		$("button").click(function() {
+			alert(hh.text());
+			
+		});
+		
+		// ctrl + shift + f 자제
+		
+		// 클릭이벤트에 함수가 5개 연결
+		for (var i = 0; i < i < 5; i++) {
+		// 이 html에 있는 모든 h1들
+		// 클릭이벤트에 함수를 연결해놓기(불러오기 x)
+		$("h1").click(function() {
+			alert("전설이 돌아오다");
+		});
+			
+		}
+
+	});
+</script>
+</head>
+<body>
+	<h1 id="h">ㅋㅋㅋㅋ</h1>
+	<button>ㅎㅎ</button>
+	<button>ㅎㅎ</button>
+	<button>ㅎㅎ</button>
+	<button>ㅎㅎ</button>
+	<button>ㅎㅎ</button>
+</body>
+</html>

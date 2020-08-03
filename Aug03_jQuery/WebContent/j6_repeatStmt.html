@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#b1").click(function(){
+			// Java : int[] ar = {12, 121, 321};
+			var ar = [12, 121, 321];
+			// alert( ar[0] );
+			for (var i = 0; i < ar.length; i++) {
+				alert(ar[i]);
+			}
+		});
+		/////////////////////////
+		$("#b2").click(function(){
+			// Java : Dog d = new Dog();
+			//			d.setName("뿌삐");
+			//			d.getName();
+			var d = {name:"뿌삐", age:3}; // 중괄호는 객체
+			alert(d);
+			alert(d.name);
+			alert(d.age);
+		});
+		/////////////////////////
+		$("#b3").click(function(){
+			// Java : ArrayList<Dog> dogs = ....
+			var dogs = [
+				{name:"뿌삐", age:2},
+				{name:"삐삐", age:3},
+				{name:"뻐삐", age:1}
+			];
+			
+			/* alert(dogs[1]);
+			alert(dogs[1].name);
+			alert(dogs[1].age); */
+			
+			// 반복문 -> 모든 개들 이름, 나이 => Js로 JSON파싱
+			for (var i = 0; i < dogs.length; i++) {
+				alert(dogs[i].name + " : " + dogs[i].age);
+			};
+			
+		});
+		
+		$("#b4").click(function(){
+			var dogs = [
+				{name:"뿌삐", age:2},
+				{name:"삐삐", age:3},
+				{name:"뻐삐", age:1}
+			];
+			
+			// JS배열대상
+			// $.each(배열, function(인덱스, 객체){});
+			$.each(dogs, function(i, d){
+				// dogs[i] = d
+				alert(dogs[i].name + " : " + d.age);
+			});
+		});
+		
+		$("#b5").click(function(){
+			// DOM객체(HTML객체 - 시작태그와 종료태그가 있는거)대상 : XML파싱
+			// $("선택자").each(function(인덱스, 객체){});
+			$("button").each(function(i, b){
+				$(b).css("font-size", ((i+1) * 10) + "pt");
+			});
+		});
+		$("#b6").click(function(){
+			var ar = [
+				{w:100, c:"red"},
+				{w:150, c:"skyblue"},
+				{w:200, c:"green"},
+				{w:50, c:"orange"},
+				{w:80, c:"white"},
+				{w:300, c:"brown"}
+			];
+			
+			$("button").each(function(i, b){
+				$(b).css("width", ar[i].w + "px");
+				$(b).css("color", ar[i].c);
+			});	
+		});
+	});
+</script>
+</head>
+<body>
+	<button id="b1">배열연습</button>
+	<button id="b2">객체연습</button>
+	<button id="b3">배열속에 객체 연습</button>
+	<button id="b4">배열+속에 객체 연습(jQuery)</button>
+	<button id="b5">DOM객체대상</button>
+	<button id="b6">오늘</button>
+</body>
+</html>

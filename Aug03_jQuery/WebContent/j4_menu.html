@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var m1Visible = false;
+
+		$("#b1").click(function() {
+
+			if (m1Visible) {
+				$("#m1").css("top", "-100px");
+				$("#m1").css("left", "-100px");
+			} else {
+				$("#m1").css("top", "35px");
+				$("#m1").css("left", "35px");
+			}
+			m1Visible = !m1Visible;
+		});
+
+		var m2Visible = false;
+		$("#b2").click(function() {
+			if (m2Visible) {
+				$("#m2").css("opacity", "0");
+			} else {
+				$("#m2").css("opacity", "1");
+			}
+			m2Visible = !m2Visible;
+		});
+		
+		var m3Visible = false;
+		$("#b3").click(function() {
+			if (m3Visible) {
+				$("#m3").css("visibility", "hidden");
+			} else {
+				$("#m3").css("visibility", "visible");
+			}
+			m3Visible = !m3Visible;
+		});
+
+	});
+</script>
+<style type="text/css">
+#m1 {
+	position: fixed;
+	top: -100px;
+	left: -100px;
+	transition: all 0.5s ease-out;
+}
+
+#m2 {
+	opacity: 0;
+	transition: all 0.5s ease-out;
+}
+
+#m3 {
+	visibility: hidden;
+	transition: all 0.5s ease-out;
+}
+</style>
+</head>
+<body>
+	<button id="b1">메뉴1</button>
+	<table border="1" id="m1">
+		<tr>
+			<td><a href="https:/www.naver.com">네이버로</a>
+		</tr>
+		<tr>
+			<td><a href="https:/www.daum.net">다음으로</a>
+		</tr>
+		<tr>
+			<td><a href="https:/www.google.com">구글로</a>
+		</tr>
+
+	</table>
+
+	<button id="b2">메뉴2</button>
+	<table border="1" id="m2">
+		<tr>
+			<td><a href="https:/www.naver.com">네이버로2</a>
+		</tr>
+		<tr>
+			<td><a href="https:/www.daum.net">다음으로2</a>
+		</tr>
+		<tr>
+			<td><a href="https:/www.google.com">구글로2</a>
+		</tr>
+
+	</table>
+
+	<button id="b3">메뉴3</button>
+	<table border="1" id="m3">
+		<tr>
+			<td><a href="https:/www.naver.com">네이버로3</a>
+		</tr>
+		<tr>
+			<td><a href="https:/www.daum.net">다음으로3</a>
+		</tr>
+		<tr>
+			<td><a href="https:/www.google.com">구글로3</a>
+		</tr>
+
+	</table>
+
+
+</body>
+</html>

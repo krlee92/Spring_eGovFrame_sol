@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	// jQuery/JavaScript : 컨트롤러 거치지 않고 HTML을 수정
+	
+	// jQuery문법
+	//		$(선택자).메소드().메소드().메소드()....
+	//		getter, setter 따로 없음
+	//			파라메터로 구분
+	//				바꿀 내용까지 넣으면 : setter
+	//				바꿀 내용 안넣으면 : getter
+	
+	// CSS 수정 가능
+	//		$(선택자).css("속성명(color..)", "값(red..)");
+	
+	// body에 있는게 다 나오고 나서
+	// $(document).ready(function(){ 를 줄여서
+	$(function(){
+		// 버튼을 누를 때 마다 x
+		// 버튼에 클릭이벤트에 AA함수 연결해두기
+		// => 나중에 버튼 클릭하면 AA가 자동 호출되는
+		$("#b1").click(function AA(){
+			$("h1").css("color", "#00FF00");
+			
+		});
+		
+		// b2버튼누르면 h1 궁서체로, 배경색변경
+		$("#b2").click(function(){
+			$("h1").css("font-family", "궁서")
+			.css("background-color","brown");
+		});
+		// b3누르면 h1색 정보
+		$("#b3").click(function(){
+			// $("h1").css("color","red"); // setter	
+			var c = $("h1").css("color"); // getter	
+			alert(c);
+		});
+		//  b4누르면 b4의 배경색을 h1의 글자색과 같게
+		$("#b4").click(function(){
+			
+			var h1Color = $("h1").css("color");
+			$("#b4").css("background-color", h1Color);
+		});
+		
+		// 장난
+		setInterval(function(){
+			var x= Math.random() * 700;	
+			var y= Math.random() * 700;	
+			$("img").css("top", y+"px");
+			$("img").css("left", x+"px");
+			}, 500);
+	});
+</script>
+<style type="text/css">
+img{
+	width: 100px;
+	position: fixed;
+	transition: all 0.5s ease-out;
+}
+</style>
+</head>
+<body>
+	<h1>ㅋㅋㅋ</h1>
+	<button id="b1">b1</button>
+	<button id="b2">b2</button>
+	<button id="b3">b3</button>
+	<button id="b4">b4</button><p>
+	<img src="새.png">
+</body>
+</html>

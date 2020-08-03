@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("button").click(function(){
+			// $(this) : 이벤트가 발생한 객체
+			// 이 버튼만 되게
+			$(this).css("background-color","skyblue");
+			
+			// .parent() : 한단계 상위
+			// 눌러진 버튼이 소속된 td
+			$(this).parent().css("background-color", "green");
+			
+			// 눌러진 버튼이 소속된 테이블
+			// .closest() : 상위중에 가장 가까운거 찾기
+			// $(this).parent().parent().parent() 해도되는데
+			$(this).closest("table").css("width", "500px");
+			
+		});
+		
+		$("td").click(function(){
+			// .children() : 하위 객체 전부 다
+			$(this).children().css("background-color", "yellow");
+			
+			// .find("CSS선택자") : 하위 객체 중에 찾기
+			$(this).find("button").css("color", "red");
+		});
+		
+		$("#bb").click(function(){
+			// .val() : <input>의 내용 가져오기
+			var iiVal = $("#ii").val();
+			alert(iiVal);
+		});
+		
+		// input에 색 하나 쓰고 버튼누르면 그 td의 테두리가 그색이 되도록
+		$("button").click(function(){
+			var c1 = $(this).parent().find("input").val();
+			$(this).parent().css("border", c1 + " solid 2px");
+		});
+	});
+
+</script>
+<style type="text/css">
+td{
+	width: 300px;
+	height: 100px;
+}
+</style>
+</head>
+<body>
+	<input id="ii">
+	<button id="bb">bb</button>
+	<table border="1" id="m3">
+		<tr>
+			<td><input>
+			<button>b1</button></td>
+		</tr>
+		<tr>
+			<td><input>
+			<button>b2</button></td>
+		</tr>
+		<tr>
+			<td><input>
+			<button>b3</button></td>
+		</tr>
+	</table>
+	<br>
+	<table border="1" id="m3">
+		<tr>
+			<td><input>
+			<button>b1</button></td>
+		</tr>
+		<tr>
+			<td><input>
+			<button>b2</button></td>
+		</tr>
+		<tr>
+			<td><input>
+			<button>b3</button></td>
+		</tr>
+	</table>
+	<br>
+	<table border="1" id="m3">
+		<tr>
+			<td><input>
+			<button>b1</button></td>
+		</tr>
+		<tr>
+			<td><input>
+			<button>b2</button></td>
+		</tr>
+		<tr>
+			<td><input>
+			<button>b3</button></td>
+		</tr>
+	</table>
+	<br>
+</body>
+</html>
