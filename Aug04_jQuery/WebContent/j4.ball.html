@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#paper{
+	border: black solid 5px;
+}
+</style>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+-	// 공튕기기 게임
+	$(function(){
+		var paper = document.getElementById("paper");
+		var pen = paper.getContext("2d");
+		var time = 0;
+		
+		var bx = 10; 	var by = 10; // bx : 공의 왼쪽좌표, by : 공의 위쪽좌표 bx,by 초기값10인이유는 공백 고려한 초기위치값
+		var bxSpd = 8;	var bySpd = 8; 
+		var barX = 0;	 // barX : 바의 왼쪽면
+		var paperX = $("#paper").offset().left; // 캔버스의 x위치
+		$("#paper").mousemove(function(e){ // 공백처리한것
+			barX = e.pageX - paperX - 80;
+		});
+		
+		var b = new Image();
+		b.src = "ball.png";
+		b.onload = function(){
+			// pen.drawImage(b, 10, 10);
+		};
+		
+		// A && B && C
+		// A && B : AND A와 B 둘다 만족 => true
+		// A && B : A나 B 둘 중에 하나라도 틀리면 => false
+		// A && B : A가 틀리면 B검사할필요 x, A틀리면 B 검사안함
+		// && 쓸 때 확률 낮은거를 앞으로 => 검사횟수 감소
+		// || 쓸 때 확률 높은거를 앞으로 => 검사횟수 감소
+		
+		// bx : 공의 왼쪽 by : 공의 위쪽
+		// 50 : 공의 가로 세로 사이즈
+		// barX : 바의 왼쪽 780 바의 위쪽 160 : 바 가로 사이즈
+		var t = setInterval(function(){ // 0.03초마다 함수 호출
+			pen.fillStyle = "#00000011"; // 투명도를 줘서 공 잔상이 조금만 보이게
+			pen.fillRect(0,0, 700, 800); // 화면전체에 0.2초마다 까만색을 덮어씌워서 공 잔상 안보이게
+			
+			/* 난이도조절용 
+			var r = Math.random();
+			if (r >= 0.99 ) {
+				bxSpd *= -1.1;
+			} else if (r >= 0.98) {
+				bySpd *= -1.1;
+			} else if (r >= 0.97) {
+				bxSpd *= -0.9;
+			} else if (r >= 0.96) {
+				bySpd *= -0.9;
+			} */
+			
+			if (bx + 50 >= 700 || bx <= 0) { // bx + 이미지크기값 >= width값
+				bxSpd *= -1;
+			} else if ( 
+				(	
+					// 바에 튕기는 조건식인데 3개 다 만족해야 튕기게
+					// 메모리 낭비를 안하기 위해 조건식 순서를 조정 해줘야
+					by + 50 >= 780 &&  // 검사 제일많이하는부분을 제일 위로(바 밑의부분만 조건을 만족하기때문에 웬만하면 여기서 다 걸림)
+					bx + 25 >= barX && // 바 왼쪽좌표 + 왼쪽으로 공 반쪽만큼 더 봐주기 
+					bx + 25 <= barX + 160 // barX +160 : 바 오른쪽좌표 + 오른쪽으로 공 반쪽만큼 더 봐주기
+				)
+					||
+					by <= 0 ) {
+				bySpd *= -1;
+			} else if (by + 50 >= 780 ) {
+				clearInterval(t); // 게임오버시 돌고있는 setInterval멈추기
+			}
+			bx += bxSpd;	by += bySpd;
+		
+			pen.drawImage(b, bx, by, 50, 50); // bx by가 들어가야 움직임
+			
+			pen.fillStyle = "#43A047";
+			pen.fillRect(barX, 780 , 160 , 20); // 바의위치가 마우스 따라가게 넣기
+			
+			
+			time += 0.02;
+			$("h1").text(time.toFixed(2));
+						
+			
+		}, 20);
+		
+	});
+</script>
+</head>
+<body>
+	<canvas id="paper" width="700px" height="800px"></canvas>
+	<h1>ㅋㅋㅋ</h1>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div {
+	border: red solid 3px;
+	width: 300px;
+	height: 300px;
+}
+img {
+	width: 100px;
+	position: fixed;
+}
+#m {
+	transition: opacity 0.3s ease-out;
+	position: fixed; 
+	top: -100px;
+	left: -100px;
+	opacity: 0;
+}
+</style>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		// div의 정확한 좌표(8.8씩 기본여백을 먹고있음)
+		var divX = $("div").offset().left;
+		var divY = $("div").offset().top;	
+		///////////////////클릭관련////////
+		// 마우스 누를 때(기능 발동 전)
+		$("div").mousedown(function(e) {
+			// e : 발생한 이벤트 정보
+			// e.button : 눌러진 버튼
+			// e.pageX, e.pageY : 좌표(html기준좌표,기본여백 반영)
+			$("h1").text("mouseDOwn " + e.button);
+		});
+
+		// 누른거 손 뗄 때(기능 발동 후)
+		$("div").mouseup(function(e) {
+			$("h1").text("mouseUp");
+		});
+		///////////////////////////////////////
+		$("div").mouseenter(function(e) {
+			$("h1").text("mouseEnter");
+		});
+		
+		// 1px이라도 마우스가 움직이면 
+		$("div").mousemove(function(e) {
+			var x = e.pageX - divX;
+			var y = e.pageY - divY;
+			$("h2").text(x+ ", " + y);
+		});
+		$("div").mouseleave(function(e) {
+			$("h1").text("mouseLeave");
+		});
+		
+		$("html").mousemove(function(e){
+			$("img").css("left",(e.pageX + 10) + "px");
+			$("img").css("top",(e.pageY + 10) + "px");
+		});
+		///////////////////////////////////////////////
+		// 우클릭했을때 나오는 브라우저 메뉴 안나오게
+		
+		// 우클릭해서 브라우저 메뉴 나오려고 할 때
+		$(document).contextmenu(function(){
+			return false; // 안나오게
+		});
+		
+		$("html").mousedown(function(e){
+			if (e.button == 2) {
+				$("#m").css("opacity", "1");
+				$("#m").css("left", e.pageX + "px");
+				$("#m").css("top", e.pageY + "px");
+				
+			setTimeout(function(){
+				$("#m").css("opacity", "0");
+				
+				setTimeout(function(){
+					$("#m").css("left", "-100px");
+					$("#m").css("top", "-100px");
+				}, 500); // 딜레이용
+			}, 3000);
+			}
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<table id="m" border="1">
+		<tr>
+			<td><a href="https://www.naver.com">네이버로</a>
+		</tr>
+		<tr>
+			<td><a href="https://www.daum.net">다음으로</a>
+		</tr>
+		<tr>
+			<td><a href="https://www.google.com">구글로</a>
+		</tr>
+</table>
+	<img src="ball.png">
+	<div></div>
+	<h1>ㅋ</h1>
+	<h2>ㅎ</h2>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#b1").click(function(){
+			// alert($("a").text()); // 바꿀내용 안주면 getter
+			// $("a").text("구글로"); // setter
+			// $("a").html("구글로"); // text, html 둘다 내용수정 가능
+			$("a").html("<h1>구글로</h1>");
+		});
+		
+		$("#b2").click(function(){
+			$("a").attr("href", "https://www.google.com");
+		});
+		
+		var imgNo = 1;
+		setInterval(function(){
+			$("img").attr("src", "hero_walk_0" + imgNo + ".png");
+			imgNo++;
+			if(imgNo == 6){
+				imgNo = 1;
+			}
+		}, 100);
+		
+		$("#b3").click(function(){
+			$("a").removeAttr("href");
+		});
+		
+		$("#b4").click(function(){
+			// $("marquee") // 선택
+			// <marquee behavior="alternate">ㅋㅋㅋ</marquee> 생성한것
+			var m = $("<marquee></marquee>").attr("behavior", "alternate")
+			.text("ㅋㅋㅋㅋ");// 생성
+			// $("#d").append(m); // 순서대로 추가
+			$("#d").prepend(m); // 역순으로 추가
+		});
+		
+		$("#b5").click(function(){
+			var n = $("#n").val();
+			var p = $("#p").val();
+			/* alert(n);
+			alert(p);
+			$("#n").val("");
+			$("#p").val(""); */
+			var nTd = $("<td></td>").text(n);
+			var pTd = $("<td></td>").text(p);
+			var tr = $("<tr></tr>").append(nTd, pTd);
+			$("table").append(tr);
+			$("#n").val("");
+			$("#p").val("");
+			
+		});
+		
+		$("#b6").click(function(){
+			$("#d").remove();
+			$("#d").empty(); // 안에 텍스트 비우기
+			
+		});
+		
+		
+	});
+</script>
+<style type="text/css">
+#d {
+	border: red solid 3px;
+	width: 300px;
+	height: 300px;
+}
+
+#t {
+	border: skyblue solid 3px;
+	width: 400px;
+	height: 100px;
+}
+
+
+</style>
+</head>
+<body>
+	<img>
+	<a href="https://www.naver.com">네이버로</a>
+	
+	<button id="b1">내용수정</button>
+	<button id="b2">속성수정</button>
+	<button id="b3">속성삭제</button>
+	<button id="b4">DOM객체 추가</button>
+	<button id="b6">DOM객체 삭제</button>
+	
+	<hr>
+	<div id="d"></div><br>
+	<input id="n">
+	<input id="p">
+	<button id="b5">게시판연습</button>
+	<table id="t">
+		<tr>
+			<th>이름</th>
+			<th>가격</th>
+		</tr>
+	</table>
+	
+</body>
+</html>
