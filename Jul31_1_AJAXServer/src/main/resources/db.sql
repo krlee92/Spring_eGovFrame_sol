@@ -5,7 +5,7 @@ create table jul31_menu(
 
 drop table jul31_menu;
 
-insert into jul31_menu values('주먹밥', 2000);
+insert into jul31_menu values('잡채밥', 8000);
 
 select * from jul31_menu;
 

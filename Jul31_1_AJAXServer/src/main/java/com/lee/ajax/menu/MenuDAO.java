@@ -14,6 +14,13 @@ public class MenuDAO {
 	@Autowired
 	private SqlSession ss;
 	
+	public Menus searchMeun(Menu mm, HttpServletRequest req) {
+		List<Menu> menus = ss.getMapper(MenuMapper.class).searchMenu(mm);
+		
+		Menus m = new Menus(menus);
+		return m; // Menus객체를 응답(Spring XML로 자동 정리해서 : setter이름 기준)
+		
+	}
 	
 	
 	public Menus getMeun3(HttpServletRequest req) {

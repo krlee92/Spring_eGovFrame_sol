@@ -1,7 +1,5 @@
 package com.lee.ajax.champ;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +16,16 @@ public class ChampController {
 	@RequestMapping(value = "/champ.get2", method = RequestMethod.GET,
 			produces = "application/json; charset=utf-8")
 	public @ResponseBody Champs getChamp2() {
+		
+//		try {
+//			Thread.sleep(5000);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
 		Champs c = cDAO.getAllChamp2();
 		return c;
 	}
 	
 }
+   

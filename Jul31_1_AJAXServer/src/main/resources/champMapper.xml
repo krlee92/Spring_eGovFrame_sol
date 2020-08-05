@@ -5,6 +5,7 @@
 		resultType="com.lee.ajax.champ.Champ">
 		select *
 		from jul31_champ
+		order by c_name
 	</select>
 	
 </mapper>
