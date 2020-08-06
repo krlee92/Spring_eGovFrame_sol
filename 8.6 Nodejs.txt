@@ -1,0 +1,45 @@
+AJAX
+Cross-Domain AJAX
+----------------------
+// 크로스 플랫폼 채팅앱
+// 채팅 카톡 만들기
+// 캐치마인드(skribbl)
+https://jquerymobile.com/download/
+Reverse AJAX : 
+	웹소켓통신(Spring-?
+		Node.js
+
+JSP/Spring
+	Java로 하는 서버프로그램
+
+Java : maven
+->
+Node.js : npm(남이 작업한거 편하게 가져와서 쓰는)
+Node.js
+	JavaScript로 하는 서버프로그래밍
+	많은 개발자들이 기능을(jar)
+	maven
+
+----모듈에는
+- 프로젝트에 설치되는 모듈(프로젝트에서 cmd)
+	웹소켓통신 : socket.io
+		npm install socket.io
+	
+
+- Node.js본체에 설치되는 모듈(cmd로 하는거)
+	프로젝트 만들기 편하게 : express
+	실행하기 편하게 : nodemon
+	cmd
+		npm install express -g
+		npm install express-generator@4 -g
+		npm install nodemon -g
+
+프로젝트 만들 폴더로 가서 cmd
+	express 프로젝트명 	=> 프로젝트 생성
+	cd 프로젝트명		=> 들어가서
+	npm install		=> 프로젝트에서 사용하는 jar파일 설치
+	nodemon 파일명		=> 실행하기(소스 수정해도 자동재시작)
+		콘솔창 띄워놓기, 콘솔창 마우스 클릭해놓으면 실행안됨
+-------------------------------------------------------------------------------
+기상청 - 생활과산업 - 서비스-인터넷 - RSS 
+https://www.weather.go.kr/weather/main.jsp
