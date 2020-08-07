@@ -1,0 +1,58 @@
+서울 열린 데이터 광장 키값 4f6a6547456b6368333355736a714f
+http://data.seoul.go.kr/
+
+http://openapi.seoul.go.kr:8088/
+4f6a6547456b6368333355736a714f/
+xml/
+DailyAverageAirQuality/
+1/
+40/
+20121225
+
+==========================
+BD/AI한 결과를 XML/JSON으로 만들어내서
+	jQuery로 AJAX해서
+	웹에다 시각화
+결과 시각화 :
+	R
+	Excel
+	jQuery
+
+
+canvasjs.com
+jQuery graph library
+jQuery XXX library 
+bxslider.com
+
+----------------------
+https://developers.kakao.com/console/app
+내 애플리케이션 -> REST API키값 80b818832ce2303ea5f03b9758428f1b
+문서 -> 검색-> 개발 가이드 -> XXX검색
+
+---------------------------------------------
+Native App
+	Java -> AndroidSDK
+	Obj-c -> iOS-SDK
+	C# -> winSDK
+
+Web App : 폰의 자원활용 -x(전화걸기,연락처접근....)
+	사실은 HTML/CSS
+
+Hybird App
+	HTML/CSS/JS형태로 작업
+	->Native 코드로 변환됨
+
+HTML5가 발전해서 Hybird App 사망..
+==============================
+https://openweathermap.org/
+https://openweathermap.org/current#geo 위도경도로 날씨데이터찾기
+키값 = baff8f3c6cbc28a4024e336599de28c4
+http://api.openweathermap.org/
+data/
+2.5/
+weather
+?lat=37.4923615&
+lon=127.02928809999999&
+appid=baff8f3c6cbc28a4024e336599de28c4&
+units=metric&
+lang=kr
