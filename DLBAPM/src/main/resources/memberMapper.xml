@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.dlbapm.member.MemberMapper">
+	<delete id="bye" parameterType="com.kwon.dlbapm.member.Member">
+		delete from dlbapm_member 
+		where dm_id = #{dm_id}
+	</delete>
+
+	<select id="getMemberByID"
+		parameterType="com.kwon.dlbapm.member.Member"
+		resultType="com.kwon.dlbapm.member.Member">
+		select *
+		from dlbapm_member
+		where dm_id = #{dm_id}
+	</select>
+
+	<insert id="join" parameterType="com.kwon.dlbapm.member.Member">
+		insert into dlbapm_member
+		values(#{dm_id}, #{dm_pw}, #{dm_name}, #{dm_addr}, #{dm_photo})
+	</insert>
+
+	<update id="update"
+		parameterType="com.kwon.dlbapm.member.Member">
+		update dlbapm_member
+		set dm_pw = #{dm_pw}, dm_name =
+		#{dm_name},
+		dm_addr = #{dm_addr}, dm_photo = #{dm_photo}
+		where dm_id = #{dm_id}
+	</update>
+
+</mapper>
+
+
+
+
+
+
+

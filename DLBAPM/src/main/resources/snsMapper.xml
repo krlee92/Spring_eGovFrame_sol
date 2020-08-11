@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.dlbapm.sns.SNSMapper">
+	<delete id="deleteMsg"
+		parameterType="com.kwon.dlbapm.sns.SNSMsg">
+		delete from dlbapm_sns
+		where ds_no = #{ds_no}
+	</delete>
+		
+	<select id="getAllMsgCount"
+		resultType="java.lang.Integer">
+		select count(*)
+		from dlbapm_member, dlbapm_sns
+		where dm_id = ds_owner
+	</select>
+	
+	<select id="getSearchMsgCount"
+		parameterType="com.kwon.dlbapm.sns.SNSSelector"
+		resultType="java.lang.Integer">
+		select count(*)
+		from dlbapm_member, dlbapm_sns
+		where dm_id = ds_owner 
+			and (ds_txt like '%'||#{search}||'%' 
+				or dm_id like '%'||#{search}||'%')
+	</select>
+	
+	<select id="getMsg"
+		parameterType="com.kwon.dlbapm.sns.SNSSelector"
+		resultType="com.kwon.dlbapm.sns.SNSMsg">
+		select *
+		from(
+			select rownum as rn, dm_photo, dm_id, ds_txt, ds_when, ds_color, ds_no
+			from(
+				select *
+				from dlbapm_member, dlbapm_sns
+				where dm_id = ds_owner and (ds_txt like '%'||#{search}||'%' 
+				or dm_id like '%'||#{search}||'%')
+				order by ds_when desc
+				)
+			)
+			where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	
+	<select id="getReply"
+		parameterType="com.kwon.dlbapm.sns.SNSMsg"
+		resultType="com.kwon.dlbapm.sns.SNSReply">
+		select *
+		from dlbapm_sns_reply
+		where dsr_ds_no = #{ds_no}
+		order by dsr_when
+	</select>
+	
+	<insert id="writeMsg"
+		parameterType="com.kwon.dlbapm.sns.SNSMsg">
+		insert into dlbapm_sns
+		values(dlbapm_sns_seq.nextval, #{dm_id}, 
+			#{ds_txt}, sysdate, #{ds_color})
+	</insert>
+	
+	<insert id="writeReply"
+		parameterType="com.kwon.dlbapm.sns.SNSReply">
+		insert into dlbapm_sns_reply
+		values(dlbapm_sns_reply_seq.nextval,
+		#{dsr_ds_no}, #{dsr_owner}, #{dsr_txt}, sysdate)
+	</insert>
+	
+	<update id="updateMsg"
+		parameterType="com.kwon.dlbapm.sns.SNSMsg">
+		update dlbapm_sns
+		set ds_txt = #{ds_txt}
+		where ds_no =
+		#{ds_no}
+	</update>
+</mapper>
+
+
+
+
+
+
+

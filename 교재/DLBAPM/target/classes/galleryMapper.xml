@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kwon.dlbapm.gallery.GalleryMapper">
+	<delete id="delete"
+		parameterType="com.kwon.dlbapm.gallery.GalleryFile">
+		delete from dlbapm_gallery where dg_no = #{dg_no}
+	</delete>
+	<select id="get"
+		parameterType="com.kwon.dlbapm.gallery.GalleryFile"
+		resultType="com.kwon.dlbapm.gallery.GalleryFile">
+		select * from dlbapm_gallery order by dg_no desc
+	</select>
+	<insert id="upload"
+		parameterType="com.kwon.dlbapm.gallery.GalleryFile">
+		insert into dlbapm_gallery
+		values(dlbapm_gallery_seq.nextval, #{dg_owner}, #{dg_title},
+		#{dg_file})
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

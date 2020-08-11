@@ -1,0 +1,114 @@
+@charset "UTF-8";
+
+#drArea {
+	width: 100%;
+	height: 700px;
+}
+
+#drArea td {
+	width: 25%;
+	padding: 0px;
+}
+
+#drBookArea {
+	width: 96.5%;
+	height: 95%;
+	border-left: #F44336 solid 4px;
+	border-right: #F44336 solid 4px;
+	border-bottom: #F44336 solid 4px;
+	background-color: #00000077;
+	padding-top: 10px;
+	overflow: scroll;
+}
+
+#drCodeArea {
+	width: 96.5%;
+	height: 95%;
+	border-left: #43A047 solid 4px;
+	border-right: #43A047 solid 4px;
+	border-bottom: #43A047 solid 4px;
+	background-color: #00000077;
+	padding-top: 10px;
+	overflow: scroll;
+}
+
+#drAppsArea {
+	width: 96.5%;
+	height: 95%;
+	border-left: #039BE5 solid 4px;
+	border-right: #039BE5 solid 4px;
+	border-bottom: #039BE5 solid 4px;
+	background-color: #00000077;
+	padding-top: 10px;
+	overflow: scroll;
+}
+
+#drAttachmentArea {
+	width: 96.5%;
+	height: 95%;
+	border-left: #795548 solid 4px;
+	border-right: #795548 solid 4px;
+	border-bottom: #795548 solid 4px;
+	background-color: #00000077;
+	padding-top: 10px;
+	overflow: scroll;
+}
+
+.aData {
+	width: 90%;
+	margin-bottom: 10px;
+	color: white;
+	font-family: "c";
+	border-radius: 7px;
+	box-shadow: 3px 3px 3px black;
+}
+
+.adTitle {
+	color: white;
+	font-family: "a";
+	font-size: 12pt;
+	word-break: break-all;
+	height: 40px;
+}
+
+.adImgTd {
+	height: 60px;
+}
+
+#dutTd1 {
+	border-left: white solid 4px;
+	border-top: white solid 4px;
+	width: 370px;
+}
+
+#dutTd2 {
+	border-right: white solid 4px;
+	border-top: white solid 4px;
+	border-bottom: white solid 4px;
+}
+
+#dutTd3 {
+	border-left: white solid 4px;
+	padding: 10px;
+}
+
+#dutTd4 {
+	border-left: white solid 4px;
+	border-bottom: white solid 4px;
+	padding: 10px;
+}
+
+#dutInput {
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-family: 'c';
+	font-size: 14pt;
+	height: 40px;
+	padding: 10px;
+	width: 300px;
+}
+
+#dutInput::placeholder {
+	color: white;
+}

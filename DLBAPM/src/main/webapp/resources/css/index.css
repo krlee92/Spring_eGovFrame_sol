@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+@font-face {
+	font-family: "a";
+	src: url("a.TTF");
+}
+
+@font-face {
+	font-family: "b";
+	src: url("b.TTF");
+}
+
+@font-face {
+	font-family: "c";
+	src: url("c.TTF");
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	background-image: url("../img/bg.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	margin: 0px;
+	padding: 0px;
+}
+
+input, button, textarea {
+	outline: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+textarea {
+	resize: none;
+}
+
+table {
+	border-spacing: 0px;
+}
+
+#siteTitleArea {
+	width: 100%;
+	position: fixed;
+	top: -62px;
+	left: 0px;
+	transition:all 0.4s ease-out;
+}
+
+#siteMenuArea {
+	width: 1000px;
+	height: 65px;
+}
+
+#siteTitleArea2 {
+	width: 1000px;
+	height: 50px;
+}
+
+#siteTitleArea2 a {
+	font-family: "a";
+	color: white;
+	font-size: 20pt;
+}
+
+#siteTitleArea2 a:hover {
+	text-shadow: 0px 0px 5px white;
+}
+
+#siteTitleArea2 span {
+	font-size: 30pt;
+}
+
+#siteAddr {
+	font-family: "b";
+	color: white;
+	font-size: 15pt;
+}
+
+#siteContentArea {
+	margin-top: 150px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#v {
+	font-family: "b";
+	font-size: 15pt;
+	color: #F44336;
+}
+
+
+#menuTbl {
+	width: 100%;
+}
+
+#menuTbl .m {
+	width: 70px;
+	height: 60px;
+}
+
+#menuTbl .mImg {
+	width: 30px;
+}
+
+#menuTbl .mImg:hover {
+	width: 35px;
+}
+
+
+

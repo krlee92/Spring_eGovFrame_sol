@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.anImg{
+	float: left;
+	background-color: white;
+	font-weight: 900;
+	margin: 10px;
+	box-shadow: 3px 3px 3px black;
+}
+.anImg img{
+	margin:7px;
+	max-width: 200px;
+	box-shadow: 2px 2px 2px black;
+}
+.afTitle{
+	font-family: "a";
+}
+.afOwner{
+	font-family: "b";
+	padding: 10px;
+}

@@ -1,0 +1,15 @@
+2.1 web.xml에 추가
+
+POST방식 한글처리
+
+utf-8인경우 euc-kr을 utf-8로 바꾸기
+<filter>
+<filter-name>encodingFilter</filter-name>
+<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+<init-param>
+<param-name>encoding</param-name>
+<param-value>euc-kr</param-value></init-param></filter>
+<filter-mapping>
+<filter-name>encodingFilter</filter-name>
+<url-pattern>/*</url-pattern>
+</filter-mapping>
