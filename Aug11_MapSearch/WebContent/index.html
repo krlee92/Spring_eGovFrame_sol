@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/index.css">
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=77b1c88200cd93e03cde862be7fb6090"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 구글지도에서 위도경도 받아오기
+		// 강남역 위치값
+		var lat = 37.49795;
+		var lng = 127.027637;
+		
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new kakao.maps.LatLng(lat, lng), //지도의 중심좌표.
+			level: 3 //지도의 레벨(확대, 축소 정도)
+			
+		};
+		
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+		
+		var marker = new kakao.maps.Marker({
+		    map: map,
+		    position: new kakao.maps.LatLng(lat, lng),
+		});
+		
+		
+		var container2 = document.getElementById('rv');
+		var roadviewClient = new kakao.maps.RoadviewClient();
+		var latlng = new kakao.maps.LatLng(lat, lng);
+		
+	    var roadview = new kakao.maps.Roadview(container2);
+		// latlng좌표를 중심으로 반경50미터 이내에 사진찍은 포인트 시퀀스 값 구하기
+		
+		
+		kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+    	// 클릭한 위도, 경도 정보를 가져옵니다 
+    	var latlng = mouseEvent.latLng; 
+    	// 마커 위치를 클릭한 위치로 옮깁니다
+    	marker.setPosition(latlng);
+    	var message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
+    	message += '경도는 ' + latlng.getLng() + ' 입니다';
+    	var resultDiv = document.getElementById('clickLatlng'); 
+    	resultDiv.innerHTML = message;
+		});
+		
+		
+		
+		
+		$("#where").keyup(function(e){
+			//if (e.keyCode == 13) {
+				var where = $(this).val();
+				$.ajax({
+					url : "https://dapi.kakao.com/v2/local/search/address.json",
+					data : {query : where},
+					beforeSend : function(req){
+						req.setRequestHeader("Authorization", "KakaoAK 80b818832ce2303ea5f03b9758428f1b")
+					},
+					success : function(ll){
+						var spot = new kakao.maps.LatLng(ll.documents[0].y, ll.documents[0].x);
+						map.setCenter(spot);
+						
+						roadviewClient.getNearestPanoId(spot, 50, function(panoId) {
+							roadview.setPanoId(panoId, spot);
+						});
+					}
+				});
+			//} 엔터키 안쳐도 되게
+		});
+		$("#what").keyup(function(e){
+			//if (e.keyCode == 13) {
+				var w = $(this).val();
+				// 현재 지도상의 중심값
+				//alert(map.getCenter().getLat());
+				//alert(map.getCenter().getLng());
+				
+				// 키워드로 찾기
+				$.ajax({
+					url : "https://dapi.kakao.com/v2/local/search/keyword.json",
+					// 현재지도중심으로 반경1킬로미터 이내 찾기
+					data : {query : w,
+						x : map.getCenter().getLng(),
+						y : map.getCenter().getLat(),
+						radius : 1000,
+						sort : "distance"
+					},
+					beforeSend : function(req){
+						req.setRequestHeader("Authorization", "KakaoAK 80b818832ce2303ea5f03b9758428f1b");
+					},
+					success : function(ll){
+						// 검색하고 다시검색하면 기존결과는 지워야
+						$("#resultArea").empty();
+						// alert(JSON.stringify(ll));
+						$.each(ll.documents, function(i, s){
+							var marker = new kakao.maps.Marker({
+							    map: map,
+							    position: new kakao.maps.LatLng(ll.documents[0].y, ll.documents[0].x)
+							});
+							
+							var td1 = $("<td></td>").text(s.place_name).attr("class","rTitle");
+							var tr1 = $("<tr></tr>").append(td1);
+								
+							var td2 = $("<td></td>").text(s.road_address_name);
+							var tr2 = $("<tr></tr>").append(td2);
+								
+							var td3 = $("<td></td>").text(s.phone);
+							var tr3 = $("<tr></tr>").append(td3);
+								
+							var td4 = $("<td></td>").text(s.distance + "m").attr("align", "right");
+							var tr4 = $("<tr></tr>").append(td4);
+								
+							var tbl = $("<table></table>").append(tr1,tr2,tr3,tr4).attr("class","r");
+							$("#resultArea").append(tbl);
+							
+							marker.setMap(map);
+
+							// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+							var iwContent = '<div style="padding:5px;">'+s.place_name+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+							    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+							// 인포윈도우를 생성합니다
+							var infowindow = new kakao.maps.InfoWindow({
+							    content : iwContent,
+							    removable : iwRemoveable
+							});
+
+							// 마커에 클릭이벤트를 등록합니다
+							kakao.maps.event.addListener(marker, 'click', function() {
+							      // 마커 위에 인포윈도우를 표시합니다
+							      infowindow.open(map, marker);  
+							});
+							
+						});
+					}
+				});
+			  //}
+			});
+		});
+</script>
+</head>
+<body>
+	<!-- 
+		td로 안됨
+	 -->
+	<table id="titleTbl">
+		<tr>
+			<td align="center" colspan="2" style="height:50px;">MapSearch</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<input id="where" placeholder="where">
+			</td>
+			<td align="center">
+				<input id="what" placeholder="what">
+			</td>
+		</tr>
+	</table>
+	<div id="resultArea">
+	
+	</div>
+	<div id="mapArea">
+		<div id="map"></div>
+		<div id="rv"></div>
+	</div>
+</body>
+</html>
