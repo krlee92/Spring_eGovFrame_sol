@@ -1,0 +1,171 @@
+Java
+ - 파싱 데이터 모으기
+ - SpringMVC백엔드
+ - hadoop
+ - MachineLearning
+
+Python
+ - 파싱 데이터 모으기
+ - TensorFlow 딥러닝
+ - AI의 결과를 응답해주는 AJAX서버
+--------------------------------------
+
+파이썬 파이선 python 파싱
+https://developers.naver.com/apps/#/myapps/lA5FivJ5MenI3OvwU03a/overview
+네이버 개발자센터
+lA5FivJ5MenI3OvwU03a
+Tra6RYPObW
+
+https://developers.naver.com/docs/search/news/
+검색-뉴스
+
+
+
+Go
+ - 파싱 데이터 모으기
+
+OracleDB
+ - 웹사이트 DB
+ - J/P/G로 모은 파싱데이터 저장되는(정형)
+
+MongoDB
+ -  - J/P/G로 모은 파싱데이터 저장되는(비정형)
+
+Java + OracleDB
+Python + MongoDB
+
+RDB(관계형 DB) : OracleDB, MySQL, MariaDB, MS-SQL...
+	테이블을 정의, 관계를 정의(규칙을 세우고)
+	그 규칙에 맞는 데이터만 취급 => 웹사이트 같은
+	
+	빅데이터에는 부적합
+	create table menu(
+		m_name varchar2(10 char) not null
+	);
+
+NoSQL : MongoDB, ...
+	빅데이터용 DB 
+		=> 정의하는 작업이 없음
+		=> 사용했을때 없으면 알아서 만드는거
+
+
+https://www.mongodb.com
+
+몽고디비
+MongoDB : 
+	Node.js팀에서 만든
+	Linux기반, 지금은 Windows에서도 됨
+
+	install
+	complete
+	Install MongoD as a Service체크 해제
+		굳이 windows서비스로 등록해서 오라클처럼 쓰지 않으려고
+		Linux스럽게 ON/OFF하게
+	Install MongoDB Compass체크 해제
+		GUI툴 필요없음
+		Linux스럽게 사용하게
+		설치 성공한걸 본적이 없음
+설치된 곳
+C:\Program Files\MongoDB\Server\4.4\bin
+---------------------------------------------------------
+=============================================
+MongoDB서버 ON
+1) DB파일이 저장될 폴더 확보
+	D:\lee\MDB
+2) 설치된곳에서 cmd
+
+3) 명령어
+	리눅스에서 서비스를 데몬
+	mongod --dbpath DB파일저장될 폴더 --bind_ip_all
+=============================================
+MongoDB서버 OFF
+1) ctrl + c
+2) cmd닫기
+=============================================
+MongoDB 접속
+1) 설치된곳에서 cmd(새로)
+
+2) 명령어
+	mongo 		=> 이 컴퓨터가 서버라서 이 컴퓨터에 접속
+	mongo 
+-------------------------------------------------------------------------
+NoSQL : MongoDB, ...
+	Node.js팀에서 만든
+	JS로 제어
+	테이블 : JS배열
+	데이터 : JS객체 => JSON
+	빅데이터용 DB 
+		=> 정의하는 작업이 없음
+		=> 사용했을때 없으면 알아서 만드는거
+RDB : OracleDB	db명 : xe
+--------------------------------------------------------------------------
+MongoDb
+  DB생성 - x없음
+  사용중인 DB전환
+    use DB명
+    use xe
+
+  테이블 만들기 - x없음
+    insert
+	insert into 테이블명 values(값, 값..); - 오라클
+	db.테이블명.insert(JS객체);
+	db.aug18_menu.insert({m_name:"jeyuk", m_price:4000});
+	db.aug18_menu.insert({m_name:"bulgogi", m_price:5000});
+	db.aug18_menu.insert({m_name:"김치찌개", m_price:5000, m_kcal:4000});
+	db.aug18_menu.insert({m_name:"된장찌개"});
+	db.aug18_menu.insert({m_name:"천창원", m_age:23});
+
+	db.aug18_menu2.insert({_id:"김치찌개", m_price:5000});
+	db.aug18_menu2.insert({_id:"김치볶음밥", m_price:6000});
+	db.aug18_menu2.insert({_id:"제육덮밥", m_price:4000});
+	db.aug18_menu2.insert({_id:"불고기덮밥", m_price:5000});
+	_id필드가 primary key 역할
+	따로 지정 안하면 _id필드에 객체 주소값이 들어감
+	
+     select
+	select*frim 테이블명; - 오라클
+	db.테이블명.find();
+	db.aug18_menu.find();
+	
+	db.테이블명.find(조건);
+	m_price가 4000원인거 찾기
+	db.aug18_menu2.find({m_price : 4000});
+	m_price가 4000원이상인거 찾기
+	
+	연산자
+		$lt $lte $gt $gte(<,=<,>,=>)
+		$ne :아닌거 !=
+		$regex : 글자포함
+	db.aug18_menu2.find({m_price : {연산자 : 값}});
+	db.aug18_menu2.find({m_price : {$gte:4000}});
+	
+	_id에 김치 포함된거 찾기
+	db.aug18_menu2.find({_id : {$regex:"김치"}});
+		
+     update
+	db.테이블명.update(찾을거, 바꿀내용);
+	김치볶음밥을 찾아서 가격을 10000원으로 수정
+	주의 ! db.aug18_menu2.update({_id:"김치볶음밥"},{m_price:10000} ); => primary key 제외한 price데이터 외에 다 날아가는것
+	db.aug18_menu2.update({_id:"김치볶음밥"},{$set : {m_price:10000}} ); => 제대로된 수정
+	
+     delete
+	db.테이블명.remove(조건);
+	김치시리즈 삭제
+	db.aug18_menu2.remove({_id:{$regex : "김치"}});
+---------------------------------------------------------------
+OracleDB : 일반적
+
+MongoDB : 빅데이터(비정형) 저장용
+	파싱한거 저장 : insert
+	저장된거 분석용 파일로 만들기 : find
+용도에 맞게 쓰자
+
+JSON 파싱	-> DB에 -> csv만들고
+HTML파싱
+
+
+
+jQuery
+	AJAX서버
+	-> JavaScript로도 서버프로그래밍 가능 : Node.js
+	->DB
