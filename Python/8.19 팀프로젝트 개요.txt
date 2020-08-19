@@ -1,0 +1,64 @@
+빅데이터 확보하기
+	1) 완성된 csv파일 구하기
+	
+	2) XML/JSON파싱해서 데이터 확보하는 프로그램
+
+	3) WebCrawling 남의 홈페이지 소스를 가져다가 HTML파싱
+		쉽지 않음
+		법적 문제?
+		그 사이트에서 3)행위를 막았을수도
+
+	4) 발로 뛰어서
+
+BigData분석
+	Python, R
+
+BigData - PC에서 취급이 안 될 정도
+
+Hadoop : 서버급 컴퓨터 여러대로 병렬처리 해주는 자바 프로그램
+	서버=Linux
+
+사무실 PC : windows
+서버 : Linux
+
+IT하는 사람이 Linux를 모른다?
+
+Linux : OS(windows대신 쓰는 거)
+
+가상머신
+	VMWare - 무거움(가상머신쪽이 빨라짐, windows가 힘들어짐)
+	VirtualBox - 가벼움(가상머신쪽이 떨어짐, windows가 원활)
+		virtualbox.org
+리눅스 설치 cd
+
+Windows : 제품명
+
+Linux : 제품명-x, core의 이름
+	debian계열
+		debian리눅스(제품명)
+		v ubuntu리눅스 : 개인
+			https://releases.ubuntu.com/14.04.6/
+						
+		raspbian리눅스
+		....
+	redhat계열
+		v redhat리눅스 : 회사 서버
+		centOS리눅스
+		fedora리눅스
+		...
+	android계열
+	
+	macintosh계열
+		macintosh
+		iOS
+
+팀 PPT
+	표지
+	목차
+	팀 소개
+	주제
+	그 주제 왜
+---------------------
+Use-case Diagram
+	http://staruml.io/
+	next 설치

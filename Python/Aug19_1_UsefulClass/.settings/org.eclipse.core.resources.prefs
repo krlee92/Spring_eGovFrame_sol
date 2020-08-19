@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding/convertNaverNews.py=utf-8
+encoding/convertWeather.py=utf-8
+encoding/getNaverNews.py=utf-8
+encoding/getWeather.py=utf-8
+encoding/p1_mongoDBInsert.py=utf-8
+encoding/p2_mongoDBSelect.py=utf-8
+encoding/p3_jsonParsingWeather.py=utf-8
+encoding/p4_oracleDBInsert.py=utf-8
+encoding/p5_oracleDBSelect.py=utf-8
+encoding/p6_webCrawling.py=utf-8
