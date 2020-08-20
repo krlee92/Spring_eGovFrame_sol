@@ -1,0 +1,191 @@
+서버는 Linux
+	공짜
+	원격 컨트롤이 편해야
+	권한
+	역사
+
+Oracle virtualbox all next install
+
+새로만들기
+Linux - Ubuntu64bit
+용량 적당히 - next - 하드 30쯤 -
+가상머신이라 랜카드 추가 => 설정-네트워크 ->어댑터2 ->호스트전용어댑터 연결, 고급-> 무작위모드-가상머신에 허용
+리눅스 설치CD 넣기 => 설정-저장소->컨트롤러IDE에 리눅스 파일 넣고 확인
+시작 -> 영어 설치 - update x -> erase disk install - keyboard(us) -> name pw 기억 잘
+name: l
+pw :111111
+
+ctrl alt t : 터미널(cmd)
+
+L : ifconfig
+	10.0.2.15 : 빨간색
+	192.168.56.101 : 노란색 랜카드
+
+W : ipconfig
+	192.168.0.88 : 초록색
+	192.168.56.1 : 노란색
+
+ping 상대컴퓨터주소
+ping 노란색 랜카드 서로 핑체크.
+
+원격제어 : telnet -> ssh
+
+openssh-server프로그램 설치
+
+J : maven
+P : pip3
+L : apt-get
+
+SSH서버
+
+관리자권한으로 명령어 실행
+sudo 명령어 
+
+sudo apt-get install 프로그램명
+sudo apt-get remove 프로그램명
+sudo apt-get purge 프로그램명(설정까지 다 삭제)
+sudo apt-get install openssh-server
+-----------------------------------------
+Win에서
+ssh 클라이언트 프로그램 : putty
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html putty.exe 64-bit
+실행-> L 노란랜카드 ip주소입력후 saved Sessions에 등록후 앞으로 계속 이거실행
+실행 -> L ID pw입력후 로그인
+
+putty 명령어
+clear
+ifconfig
+화살표키 위아래
+history : 번호확인
+	!번호 : 그거실행
+pwd : 현재위치
+	W] C:\사용자\계정
+	L] /home/계정 : 홈디렉토리
+ls : 거기뭐있는지확인
+ls -a : 숨김파일까지 다
+ls -l 리스트형태
+ls -al : ll로 단축
+---------------------------------------------------------------------
+이동
+cd 경로(탭키로 자동완성)
+.. 한단계 위
+. 현재위치
+~ 홈디렉토리로
+/ 최상위디렉토리
+----------------------------------------------------------------
+디렉토리 만들기
+mkdir 이름
+---------------------------------------------------------------
+메모장
+L 에 기본설치된게 tiny버전
+sudo apt-get remove vim-tiny
+sudo apt-get install vim(화살표로 왔다갔다하는거)
+
+vi 파일명(있으면 열어주고 없으면 만들어줌)
+설정모드
+	a : 입력모드 전환
+	yy : 줄복사
+	yw: 단어복사
+	p : 붙이기
+	dd: 줄삭제
+	dw: 단어삭제
+	/단어 : 찾기
+	/xxx : 찾기
+	:wq! : 저장하고 종료하기
+	:q! : 저장안하고 종료
+입력모드
+	esc : 설정모드로 전환
+----------------------------------------
+FTP[File Transfer Protocol]
+대량의 파일을 네트워크를 통해 주고 받을 때는 파일 전송 전용 서비스
+sudo apt-get install vsftpd
+
+설정파일 수정
+sudo vi /etc/vsftpd.conf
+#write_enable=YES의 주석(#) 제거
+
+재시작
+sudo service vsftpd restart
+이제 FTP서버 기능도 같이
+-------------------------------------
+W] FTP프로그램
+	파일질라
+	알드라이브
+		FTP 추가해서 연결(노란색IP주소, 리눅스 ID PW)
+------------------------------------------------------------------
+파일복사
+cp 대상 어디로
+cp text.txt t
+
+이동
+mv 대상 어디로
+mv ball.png t
+
+확장자(MS에서 사람들 보기 좋으라고 붙인거)
+.txt
+.jpg
+
+이름바꾸기
+mv test.txt ./test2.txt
+
+삭제
+rm -rf 대상
+
+압축
+
+아카이브 : 파일 여러개를 하나로 묶기
+	tar 
+압축 : 파일 하나의 사이즈를 줄이기
+	gz : gzip
+	bz2 : bzip
+xxx.tar.gz
+xxx.tar.bz2 ->리눅스 압축파일
+
+tar 옵션 대상
+	c : 하기
+	x : 풀기
+	
+	v : 과정 보여주기
+
+	z : gzip으로 압축
+	j : bzip으로 압축
+
+	f 압축파일명
+tar cvzf aug20.tar.gz aug20
+rm -rf aug20
+tar xvzf aug20.tar.gz
+----------------------------------------------------
+zip 압축
+	zip -r 압축파일명 대상
+zip -r aug20.zip aug20
+rm -rf aug20
+
+unzip 압축파일명
+unzip aug20.zip
+---------------------------------------------------
+윈도우에서 eclipse로 작업 -> 리눅스로 업로두 -> 실행만
+
+maven : ojdbc
+
+apt-get 중앙저장소에 jdk가 없어서
+외부저장소 등록...(리눅스 교재에)
+-----------------------------------
+putty : 명령어 전달하는 단말
+
+linux : 서버
+	끄면 안되는 컴퓨터
+	버스 데이터를 받아오는중
+	20160101받다가
+가상머신
+집에 가야 -> 현재 시스템 상태 저장하기(사실상안끄는옵션, 이걸사용)
+	가상머신 다시 켜면
+	버스 데이터를 받아오는중
+	20160101받는중
+-------------------------------------------
+BigData
+hadoop : 안함
+or 하는데 설치를 일주일 -> 샘플프로그램
+
+SpringMVC
+jQueryAJAX
+hadoop
